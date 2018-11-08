@@ -1,20 +1,22 @@
 
- <h2>My Books</h2>
+ <h2 class="header">My Books</h2>
 
+<div class="container">
 <ul class="books">
-	<li *ngFor="let book of books" [class.selected]="book === selectedBook" (click)="onSelect(book)">
+	<li class="item" *ngFor="let book of books" [class.selected]="book === selectedBook" (click)="onSelect(book)">
 		<span class="title">{{book.title}}</span>{{book.author}}
 	</li>
 </ul>
 
-<div *ngIf="selectedBook">
+<div class="details" *ngIf="selectedBook">
 
-<div><span class="title">Book Title: </span>{{selectedBook.title}}</div><br>
-<div>{{selectedBook.summary}}</div>
+<div class="book-title"><span id="title">Book Title: </span>{{selectedBook.title}}</div><br>
+<div class="summary">{{selectedBook.summary}}</div>
 	<div><br>
-	 	<label>Edit your summary:
-	 		<input [(ngModel)]="selectedBook.summary" placeholder="summary">
+	 	<label class="edit">Edit your summary:
+	 		<input class="text-box" [(ngModel)]="selectedBook.summary" placeholder="summary">
 	 	</label>
 	 </div>
+</div>
 </div>
 

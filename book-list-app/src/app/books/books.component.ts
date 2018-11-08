@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+import { Book } from '../book';
+import { BOOKS } from '../mock-books';
 
 @Component({
   selector: 'app-books',
   templateUrl: './books.component.html',
   styleUrls: ['./books.component.css']
 })
+
 export class BooksComponent implements OnInit {
 
-	book: Book = {
-		title: 'Homegoing',
-		author: 'Yaa Gyasi',
-		summary: 'Homegoing traces the history of two families: one that works in the slave trade and one that rises up out of slavery.'
-	};
+	books = BOOKS;
+	selectedBook: Book;
 
   constructor() { }
 
@@ -20,4 +20,7 @@ export class BooksComponent implements OnInit {
   ngOnInit() {
   }
 
+  	onSelect(book: Book): void {
+		this.selectedBook = book;
+	}
 }
